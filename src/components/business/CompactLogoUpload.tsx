@@ -1,30 +1,30 @@
-import { ChangeEvent, useState } from 'react';
-import { Upload, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { toast } from 'sonner';
+import { ChangeEvent, useState } from "react";
+import { Upload, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { toast } from "sonner";
 
 interface CompactLogoUploadProps {
   onFileSelect: (file: File) => void;
 }
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml'];
+const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/svg+xml"];
 
 export function CompactLogoUpload({ onFileSelect }: CompactLogoUploadProps) {
-  const [preview, setPreview] = useState<string>('');
+  const [preview, setPreview] = useState<string>("");
   const [progress, setProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
   const handleFile = (file: File) => {
     if (!ALLOWED_TYPES.includes(file.type)) {
-      toast.error('Please upload a JPG, PNG, or SVG file.');
+      toast.error("Please upload a JPG, PNG, or SVG file.");
       return;
     }
 
     if (file.size > MAX_FILE_SIZE) {
-      toast.error('File size must be less than 5MB.');
+      toast.error("File size must be less than 5MB.");
       return;
     }
 
@@ -48,7 +48,7 @@ export function CompactLogoUpload({ onFileSelect }: CompactLogoUploadProps) {
       <AnimatePresence mode="wait">
         <motion.div
           className={`relative h-32 rounded-lg border-2 border-dashed transition-colors ${
-            isDragging ? 'border-primary' : 'border-muted'
+            isDragging ? "border-primary" : "border-muted"
           }`}
           onDragOver={(e) => {
             e.preventDefault();
@@ -77,7 +77,7 @@ export function CompactLogoUpload({ onFileSelect }: CompactLogoUploadProps) {
                 size="icon"
                 className="absolute -right-2 -top-2 h-6 w-6"
                 onClick={() => {
-                  setPreview('');
+                  setPreview("");
                   setProgress(0);
                 }}
               >
@@ -93,7 +93,7 @@ export function CompactLogoUpload({ onFileSelect }: CompactLogoUploadProps) {
               <input
                 type="file"
                 className="hidden"
-                accept={ALLOWED_TYPES.join(',')}
+                accept={ALLOWED_TYPES.join(",")}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const file = e.target.files?.[0];
                   if (file) handleFile(file);

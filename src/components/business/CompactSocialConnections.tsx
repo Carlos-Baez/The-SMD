@@ -1,14 +1,8 @@
-import { motion } from 'framer-motion';
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Youtube,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { SocialPlatform } from '@/types/business';
-import { initializeOAuth } from '@/lib/api/oauth';
+import { motion } from "framer-motion";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SocialPlatform } from "@/types/business";
+import { initializeOAuth } from "@/lib/api/oauth";
 
 interface CompactSocialConnectionsProps {
   platforms: SocialPlatform[];
@@ -56,7 +50,7 @@ export function CompactSocialConnections({
               transition={{ delay: index * 0.1 }}
             >
               <Button
-                variant={platform.connected ? 'default' : 'outline'}
+                variant={platform.connected ? "default" : "outline"}
                 size="sm"
                 className="w-full justify-start"
                 onClick={() =>
@@ -66,7 +60,9 @@ export function CompactSocialConnections({
               >
                 <Icon className="mr-2 h-4 w-4" />
                 <span className="text-xs">
-                  {platform.connected ? 'Connected' : `Connect ${platform.type}`}
+                  {platform.connected
+                    ? "Connected"
+                    : `Connect ${platform.type}`}
                 </span>
               </Button>
             </motion.div>

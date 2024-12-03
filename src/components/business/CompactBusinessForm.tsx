@@ -1,8 +1,8 @@
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { motion } from 'framer-motion';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Button } from '@/components/ui/button';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -10,35 +10,35 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { BUSINESS_TYPES } from '@/lib/constants/business';
-import { businessFormSchema } from '@/lib/validations/business';
-import { CompactLogoUpload } from './CompactLogoUpload';
-import { CompactSocialConnections } from './CompactSocialConnections';
+} from "@/components/ui/select";
+import { BUSINESS_TYPES } from "@/lib/constants/business";
+import { businessFormSchema } from "@/lib/validations/business";
+import { CompactLogoUpload } from "./CompactLogoUpload";
+import { CompactSocialConnections } from "./CompactSocialConnections";
 
 export function CompactBusinessForm() {
   const form = useForm({
     resolver: zodResolver(businessFormSchema),
     defaultValues: {
-      name: '',
-      description: '',
-      businessType: 'retail',
+      name: "",
+      description: "",
+      businessType: "retail",
       connectedPlatforms: [
-        { id: '1', type: 'facebook', connected: false },
-        { id: '2', type: 'twitter', connected: false },
-        { id: '3', type: 'instagram', connected: false },
-        { id: '4', type: 'linkedin', connected: false },
-        { id: '5', type: 'tiktok', connected: false },
-        { id: '6', type: 'youtube', connected: false },
+        { id: "1", type: "facebook", connected: false },
+        { id: "2", type: "twitter", connected: false },
+        { id: "3", type: "instagram", connected: false },
+        { id: "4", type: "linkedin", connected: false },
+        { id: "5", type: "tiktok", connected: false },
+        { id: "6", type: "youtube", connected: false },
       ],
     },
   });
@@ -62,7 +62,7 @@ export function CompactBusinessForm() {
               className="space-y-4"
             >
               <CompactLogoUpload
-                onFileSelect={(file) => form.setValue('logo', file)}
+                onFileSelect={(file) => form.setValue("logo", file)}
               />
 
               <FormField
@@ -135,7 +135,7 @@ export function CompactBusinessForm() {
 
               <div className="pt-4 border-t">
                 <CompactSocialConnections
-                  platforms={form.watch('connectedPlatforms')}
+                  platforms={form.watch("connectedPlatforms")}
                   businessId="new"
                 />
               </div>
@@ -150,10 +150,7 @@ export function CompactBusinessForm() {
               >
                 Cancel
               </Button>
-              <Button
-                type="submit"
-                className="transition-all hover:opacity-90"
-              >
+              <Button type="submit" className="transition-all hover:opacity-90">
                 Register Business
               </Button>
             </div>

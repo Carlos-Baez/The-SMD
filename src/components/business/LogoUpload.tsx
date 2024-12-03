@@ -1,8 +1,8 @@
-import { ChangeEvent, useState } from 'react';
-import { Upload, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { toast } from 'sonner';
+import { ChangeEvent, useState } from "react";
+import { Upload, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { toast } from "sonner";
 
 interface LogoUploadProps {
   onFileSelect: (file: File) => void;
@@ -10,21 +10,21 @@ interface LogoUploadProps {
 }
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml'];
+const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/svg+xml"];
 
 export function LogoUpload({ onFileSelect, defaultImage }: LogoUploadProps) {
-  const [preview, setPreview] = useState<string>(defaultImage || '');
+  const [preview, setPreview] = useState<string>(defaultImage || "");
   const [progress, setProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
   const validateFile = (file: File): boolean => {
     if (!ALLOWED_TYPES.includes(file.type)) {
-      toast.error('Invalid file type. Please upload a JPG, PNG, or SVG file.');
+      toast.error("Invalid file type. Please upload a JPG, PNG, or SVG file.");
       return false;
     }
 
     if (file.size > MAX_FILE_SIZE) {
-      toast.error('File size exceeds 5MB limit.');
+      toast.error("File size exceeds 5MB limit.");
       return false;
     }
 
@@ -65,7 +65,7 @@ export function LogoUpload({ onFileSelect, defaultImage }: LogoUploadProps) {
     <div className="space-y-4">
       <div
         className={`relative h-48 w-48 mx-auto rounded-lg border-2 border-dashed transition-colors ${
-          isDragging ? 'border-primary bg-primary/10' : 'border-muted'
+          isDragging ? "border-primary bg-primary/10" : "border-muted"
         }`}
         onDragOver={(e) => {
           e.preventDefault();
@@ -86,7 +86,7 @@ export function LogoUpload({ onFileSelect, defaultImage }: LogoUploadProps) {
               size="icon"
               className="absolute -right-2 -top-2"
               onClick={() => {
-                setPreview('');
+                setPreview("");
                 setProgress(0);
               }}
             >
@@ -102,7 +102,7 @@ export function LogoUpload({ onFileSelect, defaultImage }: LogoUploadProps) {
             <input
               type="file"
               className="hidden"
-              accept={ALLOWED_TYPES.join(',')}
+              accept={ALLOWED_TYPES.join(",")}
               onChange={handleChange}
             />
           </label>

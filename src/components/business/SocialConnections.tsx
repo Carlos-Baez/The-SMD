@@ -1,14 +1,8 @@
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Youtube,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { SocialPlatform as SocialPlatformType } from '@/types/business';
-import { initializeOAuth, SocialPlatform } from '@/lib/api/oauth';
-import { toast } from 'sonner';
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SocialPlatform as SocialPlatformType } from "@/types/business";
+import { initializeOAuth, SocialPlatform } from "@/lib/api/oauth";
+import { toast } from "sonner";
 
 interface SocialConnectionsProps {
   platforms: SocialPlatformType[];
@@ -70,7 +64,7 @@ export function SocialConnections({
           return (
             <Button
               key={platform.type}
-              variant={platform.connected ? 'default' : 'outline'}
+              variant={platform.connected ? "default" : "outline"}
               size="sm"
               onClick={() =>
                 platform.connected
@@ -79,7 +73,7 @@ export function SocialConnections({
               }
             >
               <Icon className="mr-2 h-4 w-4" />
-              {platform.connected ? 'Connected' : 'Connect'}
+              {platform.connected ? "Connected" : "Connect"}
             </Button>
           );
         })}

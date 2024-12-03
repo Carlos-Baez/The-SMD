@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { DashboardLayout } from '@/components/layout/DashboardLayout';
-import { BusinessList } from '@/components/business/BusinessList';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { DashboardLayout } from "@/components/layout/DashboardLayout";
+import { BusinessList } from "@/components/business/BusinessList";
 
 function App() {
   return (

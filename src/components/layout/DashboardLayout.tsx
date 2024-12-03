@@ -1,7 +1,7 @@
-import { Bell, Menu, Settings } from 'lucide-react';
-import { ReactNode } from 'react';
+import { Bell, Menu, Settings } from "lucide-react";
+import { ReactNode } from "react";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,9 +9,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Navigation } from './Navigation';
+} from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Navigation } from "./Navigation";
 
 interface DashboardLayoutProps {
   children: ReactNode;

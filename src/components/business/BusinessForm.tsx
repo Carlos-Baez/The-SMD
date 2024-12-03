@@ -1,6 +1,6 @@
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@/components/ui/button';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -9,21 +9,21 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
-import { BUSINESS_TYPES } from '@/lib/constants/business';
-import { businessFormSchema } from '@/lib/validations/business';
-import { LogoUpload } from './LogoUpload';
-import { SocialConnections } from './SocialConnections';
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { BUSINESS_TYPES } from "@/lib/constants/business";
+import { businessFormSchema } from "@/lib/validations/business";
+import { LogoUpload } from "./LogoUpload";
+import { SocialConnections } from "./SocialConnections";
 
 interface BusinessFormProps {
   onSubmit: (data: any) => void;
@@ -39,22 +39,22 @@ export function BusinessForm({
   const form = useForm({
     resolver: zodResolver(businessFormSchema),
     defaultValues: defaultValues || {
-      name: '',
-      description: '',
-      businessType: 'retail',
+      name: "",
+      description: "",
+      businessType: "retail",
       connectedPlatforms: [
-        { id: '1', type: 'facebook', connected: false },
-        { id: '2', type: 'twitter', connected: false },
-        { id: '3', type: 'instagram', connected: false },
-        { id: '4', type: 'linkedin', connected: false },
-        { id: '5', type: 'tiktok', connected: false },
-        { id: '6', type: 'youtube', connected: false },
+        { id: "1", type: "facebook", connected: false },
+        { id: "2", type: "twitter", connected: false },
+        { id: "3", type: "instagram", connected: false },
+        { id: "4", type: "linkedin", connected: false },
+        { id: "5", type: "tiktok", connected: false },
+        { id: "6", type: "youtube", connected: false },
       ],
     },
   });
 
   const handleLogoUpload = (file: File) => {
-    form.setValue('logo', file);
+    form.setValue("logo", file);
   };
 
   return (
@@ -130,7 +130,7 @@ export function BusinessForm({
           />
 
           <Separator className="my-6" />
-          
+
           <FormField
             control={form.control}
             name="connectedPlatforms"
@@ -143,7 +143,7 @@ export function BusinessForm({
                 <FormControl>
                   <SocialConnections
                     platforms={field.value}
-                    businessId={defaultValues?.id || 'new'}
+                    businessId={defaultValues?.id || "new"}
                   />
                 </FormControl>
                 <FormMessage />

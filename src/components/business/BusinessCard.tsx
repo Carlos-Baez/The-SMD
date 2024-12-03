@@ -1,5 +1,5 @@
-import { Edit2, Trash2 } from 'lucide-react';
-import { useState } from 'react';
+import { Edit2, Trash2 } from "lucide-react";
+import { useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,12 +9,17 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { BusinessDialog } from './BusinessDialog';
-import { Business } from '@/types/business';
-import { SocialConnections } from './SocialConnections';
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { BusinessDialog } from "./BusinessDialog";
+import { Business } from "@/types/business";
+import { SocialConnections } from "./SocialConnections";
 
 interface BusinessCardProps {
   business: Business;
@@ -27,10 +32,10 @@ export function BusinessCard({ business }: BusinessCardProps) {
   const handleDelete = async () => {
     try {
       // TODO: Implement delete logic
-      console.log('Deleting business:', business.id);
+      console.log("Deleting business:", business.id);
       setIsDeleteDialogOpen(false);
     } catch (error) {
-      console.error('Error deleting business:', error);
+      console.error("Error deleting business:", error);
     }
   };
 
@@ -99,8 +104,8 @@ export function BusinessCard({ business }: BusinessCardProps) {
           <AlertDialogHeader>
             <AlertDialogTitle>Delete Business</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete {business.name}? This action cannot
-              be undone.
+              Are you sure you want to delete {business.name}? This action
+              cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

@@ -3,9 +3,9 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { BusinessForm } from './BusinessForm';
-import { Business } from '@/types/business';
+} from "@/components/ui/dialog";
+import { BusinessForm } from "./BusinessForm";
+import { Business } from "@/types/business";
 
 interface BusinessDialogProps {
   business?: Business;
@@ -23,13 +23,13 @@ export function BusinessDialog({
       <DialogContent className="max-w-md p-0">
         <DialogHeader className="px-4 py-2 border-b">
           <DialogTitle>
-            {business ? 'Edit Business' : 'Add New Business'}
+            {business ? "Edit Business" : "Add New Business"}
           </DialogTitle>
         </DialogHeader>
         <div className="max-h-[80vh] overflow-y-auto">
           <BusinessForm
             onSubmit={(data) => {
-              console.log('Form submitted:', data);
+              console.log("Form submitted:", data);
               onOpenChange(false);
             }}
             onCancel={() => onOpenChange(false)}

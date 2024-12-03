@@ -1,13 +1,14 @@
-import { Plus } from 'lucide-react';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { BusinessDialog } from './BusinessDialog';
-import { BusinessCard } from './BusinessCard';
-import { useBusinesses } from '@/hooks/useBusinesses';
+import { Plus } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { BusinessDialog } from "./BusinessDialog";
+import { BusinessCard } from "./BusinessCard";
+import { useBusinesses } from "@/hooks/useBusinesses";
+import { Business } from "@/types/business"; // Import Business type
 
 export function BusinessList() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const { businesses, isLoading, error } = useBusinesses();
+  const { data: businesses, isLoading, error } = useBusinesses(); // Use 'data' instead of 'businesses'
 
   if (isLoading) {
     return (
@@ -53,7 +54,8 @@ export function BusinessList() {
         </Button>
       </div>
 
-      {businesses?.length === 0 ? (
+      {/* Ensure businesses is defined before accessing */}
+      {businesses && businesses.length === 0 ? (
         <div className="text-center py-12">
           <h2 className="text-xl font-semibold mb-2">No businesses yet</h2>
           <p className="text-muted-foreground mb-4">
@@ -66,16 +68,15 @@ export function BusinessList() {
         </div>
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {businesses?.map((business) => (
-            <BusinessCard key={business.id} business={business} />
-          ))}
+          {businesses?.map(
+            (
+              business: Business, // Safe optional chaining
+            ) => <BusinessCard key={business.id} business={business} />,
+          )}
         </div>
       )}
 
-      <BusinessDialog
-        open={isDialogOpen}
-        onOpenChange={setIsDialogOpen}
-      />
+      <BusinessDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
-import { Button } from '@/components/ui/button';
-import { NAVIGATION_ITEMS } from '@/lib/constants/navigation';
-import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
+import { NAVIGATION_ITEMS } from "@/lib/constants/navigation";
+import { cn } from "@/lib/utils";
 
 export function Navigation() {
   const location = useLocation();
@@ -14,10 +14,10 @@ export function Navigation() {
         return (
           <Button
             key={item.name}
-            variant={isActive ? 'secondary' : 'ghost'}
+            variant={isActive ? "secondary" : "ghost"}
             className={cn(
-              'justify-start',
-              isActive && 'bg-muted font-medium hover:bg-muted'
+              "justify-start",
+              isActive && "bg-muted font-medium hover:bg-muted",
             )}
             asChild
           >
